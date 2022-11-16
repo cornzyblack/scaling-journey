@@ -29,3 +29,7 @@ After waiting a few minutes all services should be running. The services can be 
  - Kafdrop can be accessed in http://localhost:9000
  - Superset can be accessed in http://localhost:8088
  - FastAPI service can be accessed in http://localhost:8009/
+
+### Background on Services
+
+Airflow service is scheduled to run daily at 6:30 am
