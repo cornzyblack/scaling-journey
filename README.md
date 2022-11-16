@@ -36,17 +36,15 @@ Before building the docker image, it is important to explain how the flow works.
 For a local setup please change the `SERVICE` to local and modify the `config.ini` file in the root directory to the details of your local kafka setup. (By default this would not need to be changed, as this project is configured to use the local setup)
 
 ```
-SERVICE=confluent
-CONFIG_FILENAME=confluent_config.ini
+SERVICE=local
+CONFIG_FILENAME=config.ini
 ```
-
-
 #### Confluent Kafka Setup
 For a local setup please change the `SERVICE` to `confluent` and change the `CONFIG_FILENAME` to `confluent_config.ini` file in the root directory. Pleas make sure to edit the `confluent_config.ini` file to meet the setup for your Kafka confluent instance.
 
 ```
-SERVICE=local
-CONFIG_FILENAME=config.ini
+SERVICE=confluent
+CONFIG_FILENAME=confluent_config.ini
 ```
 
 The `NUM_OF_EVENTS` will throttle to the number of the producer to a particular number. If this number is less than 10, 10 would be used as the default.
