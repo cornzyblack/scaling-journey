@@ -82,3 +82,6 @@ If you prefer using a connection_id then use this `postgres://postgres:postgres@
 
 ## Airflow
 Since this is a daily job, the Airflow service has one Dag called 'daily_events_dag' and it is scheduled to run daily at 6:30 am. It consumes events from the Kafka broker, and updates the table, event_forms in Postgres.
+
+## Queries
+The answers for the questions can be found in a SQL file in the queries folder under the root directory.
