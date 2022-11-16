@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  kafka-producer-service:
+    build: .
+
+networks:
+  default:
+    name: kafka-kafdrop_default
+    external: true
