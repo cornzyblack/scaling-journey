@@ -4,18 +4,20 @@ Solution
 # Running Locally
 
 ## Overview
-This project has the following services running:
+This project has the following Dockerized services running:
  - Kafka (https://github.com/obsidiandynamics/kafdrop)
  - A Kafka producer script (that generates events in Kafka)
  - Airflow (for orchestration)
  - Superset (for visualization)
  - A FastAPI service that mimics the Form events API endpoint
 
+The Airflow service has one Dag called 'daily_events_dag' and it is scheduled to run daily at 6:30 am. It consumes events from the Kafka broker, and updates the table, event_forms in Postgres.
+
 ## Setting up
 
 To get started, please make sure you have Docker installed on your system. You can download it here [here](https://docs.docker.com/get-docker/)
 
-### Build Docker Image
+### Building the Docker Image
 
 Run the following in a terminal to build the Docker image, and run the service as the Docker container. Please make sure you are in the `typeform` directory (The first line does this for you)
 
@@ -29,7 +31,3 @@ After waiting a few minutes all services should be running. The services can be 
  - Kafdrop can be accessed in http://localhost:9000
  - Superset can be accessed in http://localhost:8088
  - FastAPI service can be accessed in http://localhost:8009/
-
-### Background on Services
-
-Airflow service is scheduled to run daily at 6:30 am
