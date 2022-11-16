@@ -7,11 +7,11 @@ docker-compose -f $PWD/superset/docker-compose-non-dev.yml pull
 # Prepare FastAPI service
 cp $PWD/requirements.txt $PWD/main.py app
 
-yes | cp -rf requirements.txt development utils.py app
+yes | cp -rf requirements.txt development.env utils.py app
 docker-compose -f $PWD/app/docker-compose.yml pull
 
 # Prepare Airflow service
-cp $PWD/daily_events_dag.py $PWD/development $PWD/config.ini $PWD/airflow/dags
+cp $PWD/daily_events_dag.py $PWD/development.env $PWD/config.ini $PWD/airflow/dags
 
 ### Start all services
 
@@ -28,5 +28,5 @@ docker-compose -f $PWD/superset/docker-compose-non-dev.yml up -d
 docker-compose -f $PWD/airflow/docker-compose.yml up -d
 
 # Start Kafka service
-yes | cp -rf requirements.txt config.ini development utils.py producer.py kafka-service
+yes | cp -rf requirements.txt config.ini development.env utils.py producer.py kafka-service
 docker-compose -f $PWD/kafka-service/docker-compose.yml up -d
