@@ -10,11 +10,10 @@ from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow_provider_kafka.operators.consume_from_topic import ConsumeFromTopicOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 
-bootstrap_server = "kafka:29092"
-group_id = "python_kafka101_group_1"
-topics = ["form.events"]
-auto_offset_reset = "latest"
-service = "local"
+BOOTSTRAP_SERVER = "kafka:29092"
+GROUP_ID = "python_kafka101_group_1"
+TOPICS = ["form.events"]
+AUTO_OFFSET_RESET = "latest"
 
 consumer_logger = logging.getLogger("airflow")
 
@@ -73,14 +72,14 @@ with DAG(
 
     t2 = ConsumeFromTopicOperator(
         task_id="consume_from_events_topic",
-        topics=topics,
+        topics=TOPICS,
         apply_function="daily_events_dag.consumer_function",
         apply_function_kwargs={"prefix": "consumed:::"},
         consumer_config={
-            "bootstrap.servers": bootstrap_server,
-            "group.id": group_id,
+            "bootstrap.servers": BOOTSTRAP_SERVER,
+            "group.id": GROUP_ID,
             "enable.auto.commit": False,
-            "auto.offset.reset": auto_offset_reset,
+            "auto.offset.reset": AUTO_OFFSET_RESET,
         },
         max_messages=10,
         max_batch_size=2,
