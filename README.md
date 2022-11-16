@@ -19,9 +19,9 @@ To get started, please make sure you have Docker installed on your system. You c
 
 Run the following in a terminal to build the Docker image, and run the service as the Docker container. Please make sure you are in the `typeform` directory (The first line does this for you)
 
-```bash
-    $ cd typeform
-    $ bash start.sh
+```sh
+cd typeform
+bash start.sh
 ```
 After waiting a few minutes all services should be running. The services can be accessed here:
 
