@@ -15,7 +15,7 @@ This project has the following Dockerized services running:
 
  Apart from this being a bonus task in the document, since forms can have different changes, it is best to go with the option of imagining these changes as events.
 
- Why Superset chosen for visualizing?
+ Why was Superset chosen for visualizations?
 
  It was chosen because it is open source and free, and can allow Data Analysts and Scientists, as well as BI developers query data, and build dashboards easily.
 
